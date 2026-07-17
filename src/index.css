@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cinzel+Decorative:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-cinzel: "Cinzel", serif;
+  --font-cinzel-dec: "Cinzel Decorative", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-gold-50: #faf6e8;
+  --color-gold-100: #f5ecc8;
+  --color-gold-200: #eedda6;
+  --color-gold-300: #e2cb70;
+  --color-gold-400: #D4AF37;
+  --color-gold-500: #bd9724;
+  --color-gold-600: #9e7b16;
+  --color-gold-700: #7e5f0d;
+  --color-gold-800: #5c4205;
+  --color-gold-900: #3b2801;
+  --color-gold-950: #241800;
+
+  --color-egypt-black: #0a0a0a;
+  --color-egypt-dark: #121212;
+  --color-egypt-sand: #F5E6C8;
+  --color-egypt-brown: #2C1E12;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-egypt-black);
+    color: #f5e6c8;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  /* Custom high-end scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #060606;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #cfaa3e;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b38f2e;
+  }
+}
+
+/* Premium Animations & Visual Effects */
+.gold-glow {
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.4), 0 0 20px rgba(212, 175, 55, 0.2);
+}
+
+.gold-glow-strong {
+  text-shadow: 0 0 15px rgba(212, 175, 55, 0.6), 0 0 30px rgba(212, 175, 55, 0.3), 0 0 45px rgba(212, 175, 55, 0.1);
+}
+
+.box-gold-glow {
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+.box-gold-glow-hover:hover {
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+}
+
+/* Shimmer/Shine Animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, #8a6f27 25%, #d4af37 50%, #f4ecce 75%, #8a6f27 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmer 8s linear infinite;
+}
+
+/* Floating Sand Particles CSS Animation (fallback and background layering) */
+.sand-particle {
+  position: absolute;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(212,175,55,0.8) 0%, rgba(212,175,55,0) 70%);
+  border-radius: 50%;
+  animation: float-sand var(--d) ease-in-out infinite;
+  opacity: var(--o);
+}
+
+@keyframes float-sand {
+  0% {
+    transform: translateY(100vh) translateX(0) scale(0.5);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--o);
+  }
+  90% {
+    opacity: var(--o);
+  }
+  100% {
+    transform: translateY(-20vh) translateX(var(--x)) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Light beam effect */
+.light-beam {
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.05) 0%, rgba(212, 175, 55, 0.15) 50%, rgba(212, 175, 55, 0.05) 100%);
+  clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+}
+
+/* Glassmorphism details */
+.egypt-glass {
+  background: rgba(10, 10, 10, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.egypt-glass-light {
+  background: rgba(15, 11, 8, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+/* Golden Hieroglyph Border / Frame pattern */
+.hieroglyph-border {
+  border-image: linear-gradient(to right, #74541c, #d4af37, #74541c) 1;
+}
+
+/* Custom styled scroll snapping if needed, or we control sections elegantly */
+.snap-y-mandatory {
+  scroll-snap-type: y mandatory;
+}
+.snap-start {
+  scroll-snap-align: start;
+}
+
+/* Hide default cursor on desktop when interactive cursor is enabled */
+@media (min-width: 1024px) {
+  .custom-cursor-active {
+    cursor: none;
+  }
+  .custom-cursor-active a, 
+  .custom-cursor-active button,
+  .custom-cursor-active [role="button"] {
+    cursor: none;
+  }
+}
+
+/* Custom fonts styling */
+.font-heading {
+  font-family: var(--font-cinzel), serif;
+}
+
+.font-dec {
+  font-family: var(--font-cinzel-dec), serif;
+}
+
+.font-body {
+  font-family: var(--font-sans), sans-serif;
+}
+
+.font-serif-elegant {
+  font-family: var(--font-serif), serif;
+}
+

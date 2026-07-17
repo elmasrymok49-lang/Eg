@@ -1,0 +1,6 @@
+{
+  "name": "Ancient Egypt Exhibition",
+  "description": "An ultra-premium, cinematic, museum-quality interactive exhibition about the history, monuments, timelines, and mysteries of Ancient Egypt.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
